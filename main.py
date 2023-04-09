@@ -12,7 +12,6 @@ class Apple:
         self.parent_screen = parent_screen
         self.apple_img = pygame.image.load(
             'resources/apple2.jpg').convert()
-        # self.apple_img = pygame.transform.scale(self.apple_img, (30, 30))
         self.x = 120
         self.y = 120
 
@@ -30,9 +29,6 @@ class Snake:
         self.length = length
         self.parent_screen = parent_screen
         self.block = pygame.image.load('resources/snake_block.jpg').convert()
-        # resizing the image of the snake block
-        # self.block = pygame.transform.scale(self.block, (30, 30))
-        # x coordinate of starting position of snake block
         self.x = [size]*length
         # y coordinate of starting position of snake block
         self.y = [size]*length
@@ -70,7 +66,6 @@ class Snake:
         self.draw()
 
     def draw(self):
-        # self.parent_screen.fill((background_color))
         for i in range(self.length):
             self.parent_screen.blit(self.block, (self.x[i], self.y[i]))
         pygame.display.flip()
@@ -178,7 +173,7 @@ class Game:
                 pause = True
                 self.reset()
 
-            time.sleep(0.2)
+            time.sleep(0.15)
 
     pygame.quit()
 
