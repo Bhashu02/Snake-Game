@@ -79,7 +79,7 @@ class Game:
         pygame.mixer.init()
         self.background_music()
         # setting the background color of the window
-        self.display.fill((5, 99, 22))
+        # self.display.fill((5, 99, 22))
         pygame.display.flip()
         self.snake = Snake(self.display, 1)
         self.snake.draw()
@@ -110,6 +110,11 @@ class Game:
                 sound = pygame.mixer.Sound("resources/game_over.mp3")
                 pygame.mixer.Sound.play(sound)
                 raise "Game Over"
+
+        if not (0 <= self.snake.x[0] <= 960 and 0 <= self.snake.y[0] <= 540):
+            sound = pygame.mixer.Sound("resources/game_over.mp3")
+            pygame.mixer.Sound.play(sound)
+            raise "Snake hit the boundary walls"
 
     def game_over(self):
         self.background_image()
